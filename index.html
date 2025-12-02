@@ -1,22 +1,155 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My QR Code Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        img {
-            width: 250px;
-            height: auto;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIdental – QR Access</title>
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --accent: #0ea5e9;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 880px;
+      padding: 24px;
+    }
+
+    /* Top bar with left/right logos */
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* left and right */
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img {
+      height: 48px;         /* adjust as needed */
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 0 rgba(0,0,0,0)); /* keeps image crisp */
+    }
+    .brand .label {
+      font-size: 14px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* Card containing title + QR */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(15,23,42,0.06);
+    }
+
+    .title {
+      font-size: 24px;
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 14px;
+      margin: 0 0 22px;
+      color: var(--muted);
+    }
+
+    .qr-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      background: #fafafa;
+    }
+    .qr-wrap img {
+      width: 240px;         /* QR size */
+      max-width: 70vw;
+      height: auto;
+    }
+
+    /* Footer note (optional) */
+    .footnote {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 520px) {
+      .brand img { height: 38px; }
+      .label { display: none; } /* hide small labels on mobile, keep logos */
+      .title { font-size: 20px; }
+      .subtitle { font-size: 13px; }
+    }
+
+    /* Optional dark mode (respects system setting) */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --card: #0f172a;
+        --border: #1f2937;
+        --accent: #38bdf8;
+      }
+      .qr-wrap { background: #0b1220; border-color: #1f2937; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Scan the QR Code Below</h1>
-    qr-code.png
+  <main class="container">
+    <!-- Top bar: KFAS LEFT, OLOOM RIGHT -->
+    <div class="brand-bar">
+      <div class="brand" aria-label="KFAS">
+        kfas-logo.png
+        <span class="label">Kuwait Foundation for the Advancement of Sciences</span>
+      </div>
+
+      <div class="brand" aria-label="Oloom">
+        <span class="label">Oloom</span>
+        oloom-logo.png
+      </div>
+    </div>
+
+    <!-- Main card with QR -->
+    <section class="card" aria-label="QR Access">
+      <h1 class="title">Scan to Access AIdental</h1>
+      <p class="subtitle">Point your camera at the QR code to open the page.</p>
+
+      <!-- Replace qr-code.png with your actual QR file -->
+      <div class="qr-wrap">
+        qr-code.png
+      </div>
+
+      <p class="footnote">If the QR doesn’t load, refresh the page or check your connection.</p>
+    </section>
+  </main>
 </body>
 </html>
