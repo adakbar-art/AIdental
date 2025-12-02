@@ -100,12 +100,53 @@
       color: var(--muted);
     }
 
-    /* Responsive tweaks */
+    /* Resources grid */
+    .resources {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .resource-title {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .resource-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .resource-links a {
+      display: inline-block;
+      transition: transform 0.13s;
+    }
+    .resource-links a:hover {
+      transform: scale(1.08);
+      filter: brightness(1.07);
+    }
+    .resource-links img {
+      height: 65px;
+      width: auto;
+      max-width: 125px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      padding: 6px;
+    }
     @media (max-width: 520px) {
       .brand img { height: 38px; }
-      .label { display: none; } /* hide small labels on mobile, keep logos */
+      .label { display: none; }
       .title { font-size: 20px; }
       .subtitle { font-size: 13px; }
+      .resource-links {
+        gap: 16px;
+      }
+      .resource-links img {
+        height: 48px;
+        max-width: 85px;
+      }
     }
 
     /* Optional dark mode (respects system setting) */
@@ -140,7 +181,6 @@
       </div>
     </div>
 
-
     <!-- Main card with QR -->
     <section class="card" aria-label="QR Access">
       <h1 class="title">Scan to Access AIdental</h1>
@@ -153,7 +193,22 @@
 
       <p class="footnote">If the QR doesn’t load, refresh the page or check your connection.</p>
     </section>
+
+    <!-- Resources: Teachable Machine, SciSpace, Google NotebookLM -->
+    <section class="resources" aria-label="Resource Links">
+      <h2 class="resource-title">Explore Related Tools</h2>
+      <div class="resource-links">
+        <a href="https://teachablemachine.withgoogle.com/" target="_blank" rel="noopener" title="Google Teachable Machine">
+          <img src="teachable-machine.png" alt="Google Teachable Machine" />
+        </a>
+        <a href="https://www.scispace.com/" target="_blank" rel="noopener" title="SciSpace">
+          <img src="scispace.png" alt="SciSpace" />
+        </a>
+        <a href="https://notebooklm.google/" target="_blank" rel="noopener" title="Google NotebookLM">
+          <img src="notebooklm.png" alt="Google NotebookLM" />
+        </a>
+      </div>
+    </section>
   </main>
 </body>
 </html>
-
